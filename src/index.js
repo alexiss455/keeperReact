@@ -5,13 +5,12 @@ import Header from "./assets/header";
 import Footer from "./assets/footer";
 import "./components/App.css";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Header />
     <div className="main">
       <App />
-    </div>
+    </div>  
     <Footer />
   </React.StrictMode>
 );

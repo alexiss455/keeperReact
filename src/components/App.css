@@ -54,3 +54,49 @@ footer {
     font-weight: bold;
     margin-bottom: .5rem;
 }
+.input_container{
+  max-width: 400px;
+  height: 200px;
+  margin: 0 auto;
+  padding: 2rem .5rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 3rem;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.41);
+-webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.41);
+-moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.41);
+border-radius: 1rem;
+}
+.input_container input{
+  padding: .5rem .5rem;
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+}
+.notes{
+  height: 200px;
+  padding: .5rem .5rem;
+  border: none;
+  outline: none;
+  font-size: 1.25rem;
+  resize: none;
+}
+.input_container button{
+  position: absolute;
+  bottom: -1rem;
+  right: 1rem;
+  font-size: 1rem;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background-color:rgb(255, 200, 0);
+  color: white;
+  cursor: pointer;
+  transition: .5s;
+}
+.input_container button:active{
+  transform: scale(.5);
+}
