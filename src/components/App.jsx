@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./App.css";
 import Cards from "../assets/cards";
-
 function App() {
   // handle Click button with storage of an title and notes
   const [cards, setCards] = useState([]);
@@ -24,7 +23,6 @@ function App() {
     setCards([...cards, newCard]);
     setNote({ title: "", content: "" });
   }
-
   function delcards(id) {
     setCards((prevCards) => {
       return prevCards.filter((item, index) => {
@@ -33,26 +31,36 @@ function App() {
       });
     });
   }
+  const [expnad, setExpand] = useState(true);
+  function maxheight() {
+    setExpand(false);
+  }
   return (
     <div className="containers">
       <form onSubmit={handleAddCard}>
         <div className="input_container">
-          <input
-            placeholder="Title"
-            name="title"
-            onChange={changeNotes}
-            value={note.title}
-            required
-          />
+          {expnad === false ? (
+            <input
+              placeholder="Title"
+              name="title"
+              onChange={changeNotes}
+              value={note.title}
+              required
+            />
+          ) : null}
           <textarea
+            onClick={maxheight}
             className="notes"
             placeholder="Take a note"
             name="content"
             onChange={changeNotes}
             value={note.content}
+            rows={expnad === false ? 5 : 0}
             required
           />
-          <button type="submit">add</button>
+          <button className="btn" type="submit">
+            +
+          </button>
         </div>
       </form>
       <div className="textContainer">

@@ -1,6 +1,8 @@
 import React from "react";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function card(props) {
+
   return (
     <div className="contentMain">
       <p>{props.title}</p>
@@ -10,7 +12,9 @@ export default function card(props) {
       className="delete_cards" 
       onClick={()=>{
         props.deleteCards(props.id)
-      }}>delete</button>
+      }}>
+      <DeleteIcon />
+      </button>
     </div>
   );
 }

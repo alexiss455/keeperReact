@@ -9,6 +9,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 .containers {
   max-width: 1280px;
@@ -44,12 +47,12 @@ footer {
  margin-bottom: 2rem;
 }
 .contentMain {
-
   border-radius: 1rem;
   padding: 1rem 2rem;
   box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.21);
   -webkit-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.21);
   -moz-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.21);
+  background-color: white;
 }
 .contentMain :nth-child(1){
     font-size: 1.25rem;
@@ -58,7 +61,6 @@ footer {
 }
 .input_container{
   max-width: 400px;
-  height: 200px;
   margin: 0 auto;
   padding: 2rem .5rem;
   padding-top: 1rem;
@@ -70,6 +72,7 @@ footer {
 -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.41);
 -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.41);
 border-radius: 1rem;
+background-color: white;
 }
 .input_container input{
   padding: .5rem .5rem;
@@ -78,14 +81,13 @@ border-radius: 1rem;
   font-size: 1.25rem;
 }
 .notes{
-  height: 200px;
   padding: .5rem .5rem;
   border: none;
   outline: none;
   font-size: 1.25rem;
   resize: none;
 }
-.input_container button{
+.btn{
   position: absolute;
   bottom: -1rem;
   right: 1rem;
@@ -98,8 +100,9 @@ border-radius: 1rem;
   color: white;
   cursor: pointer;
   transition: .1s;
+  font-size: x-large;
 }
-.input_container button:active{
+.btn:active{
   transform: scale(.8);
 }
 .delete_cards{
@@ -107,7 +110,6 @@ border-radius: 1rem;
   border: none;
   background-color: white;
   color: rgb(255, 196, 0);
-  font-size: large;
   font-weight: bolder;
   cursor: pointer;
   transition: .2s;
