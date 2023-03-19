@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Cards from "../assets/cards";
-import details from "./TitelDescription";
+
 
 function App() {
   // handle Click button with storage of an title and notes
@@ -24,30 +24,44 @@ function App() {
     setTitle("");
     setNote("");
   }
+
+  function delcards(id) {
+    setCards((prevCards) => {
+      return prevCards.filter((item, index) => {
+        console.log(index);
+        return index !== id;
+      });
+    });
+  }
   return (
     <div className="containers">
-      <form 
-      onSubmit={handleAddCard}
-      >
-      <div className="input_container">
-        <input placeholder="Title" onChange={changeTitle} value={title} required/>
-        <textarea
-          className="notes"
-          placeholder="Take a note"
-          onChange={changeNotes}
-          value={note}
-          required
-        />
-        <button type="submit">add</button>
-      </div>
+      <form onSubmit={handleAddCard}>
+        <div className="input_container">
+          <input
+            placeholder="Title"
+            onChange={changeTitle}
+            value={title}
+            required
+          />
+          <textarea
+            className="notes"
+            placeholder="Take a note"
+            onChange={changeNotes}
+            value={note}
+            required
+          />
+          <button type="submit">add</button>
+        </div>
       </form>
       <div className="textContainer">
         {cards.map((card, index) => (
-          <Cards 
-          key={index}
-          title={card.title} 
-          description={card.note}
-           />
+          <Cards
+            key={index}
+            id={index}
+            title={card.title}
+            description={card.note}
+            deleteCards={delcards}
+          />
         ))}
       </div>
     </div>

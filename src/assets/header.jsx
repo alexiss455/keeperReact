@@ -6,7 +6,7 @@ export default function header() {
       <div className="containers">
         <div className="nav">
         <h1>
-          LOGO
+          Keeper
         </h1>
         </div>
       </div>
