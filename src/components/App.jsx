@@ -2,27 +2,27 @@ import React, { useState } from "react";
 import "./App.css";
 import Cards from "../assets/cards";
 
-
 function App() {
   // handle Click button with storage of an title and notes
   const [cards, setCards] = useState([]);
-
-  const [title, setTitle] = useState("");
-  const [note, setNote] = useState("");
-
-  function changeTitle(event) {
-    setTitle(event.target.value);
-  }
+  const [note, setNote] = useState({
+    title: "",
+    content: "",
+  });
   function changeNotes(event) {
-    setNote(event.target.value);
+    const { name, value } = event.target;
+    setNote((preValue) => {
+      return {
+        ...preValue,
+        [name]: value,
+      };
+    });
   }
-
   function handleAddCard(event) {
     event.preventDefault();
-    const newCard = { title: title, note: note };
+    const newCard = { title: note.title, content: note.content };
     setCards([...cards, newCard]);
-    setTitle("");
-    setNote("");
+    setNote({ title: "", content: "" });
   }
 
   function delcards(id) {
@@ -39,15 +39,17 @@ function App() {
         <div className="input_container">
           <input
             placeholder="Title"
-            onChange={changeTitle}
-            value={title}
+            name="title"
+            onChange={changeNotes}
+            value={note.title}
             required
           />
           <textarea
             className="notes"
             placeholder="Take a note"
+            name="content"
             onChange={changeNotes}
-            value={note}
+            value={note.content}
             required
           />
           <button type="submit">add</button>
@@ -59,7 +61,7 @@ function App() {
             key={index}
             id={index}
             title={card.title}
-            description={card.note}
+            description={card.content}
             deleteCards={delcards}
           />
         ))}
